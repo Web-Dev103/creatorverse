@@ -10,6 +10,8 @@ import './App.css'
 // importing pages
 import AddCreator from './pages/AddCreator'
 import ShowCreators from './pages/showCreators'
+import ViewCreator from './pages/viewCreator'
+import EditCreator from './pages/EditCreator'
 
 function App() {
   // declare useStates
@@ -18,7 +20,9 @@ function App() {
   // set up routes
   let creatorElements = useRoutes([
     {path:"/", element: <ShowCreators data={creators} />},
-    {path: "/new", element: <AddCreator />}
+    {path: "/new", element: <AddCreator />},
+    {path: "viewCreator/:id/*", element: <ViewCreator />},
+    {path: "editCreator/:id", element: <EditCreator />}
   ]);
 
   useEffect

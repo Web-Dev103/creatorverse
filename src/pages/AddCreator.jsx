@@ -21,7 +21,6 @@ const AddCreator = () => {
     // handleChange
     const handleChange = (e) => {
         const {name, value} = e.target;
-        // console.log(value)
         setCreator({...creator, [name]: value})
     };
 
@@ -42,7 +41,6 @@ const AddCreator = () => {
                 yt_link: creator.yt_link,
                 twitter_link: creator.twitter_link,
             })
-        console.log("submitted")
 
         window.location ="/";
     };

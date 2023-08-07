@@ -10,14 +10,13 @@ const ShowCreators = (props) => {
         setCreators(props.data);
     }, [props])
 
-    console.log(props.data)
-
     return(
         <div>
             {creators && creators.length > 0 ?
                 creators.map((creator, index) => 
                     <div key = {creator.id}>
                         <CreatorCard 
+                            id={creator.id}
                             name={creator.name} 
                             desc={creator.description}
                             img_url={creator.imageURL}
