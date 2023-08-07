@@ -3,15 +3,20 @@ import { useRoutes } from 'react-router'
 import { supabase } from './client'
 import { Link } from 'react-router-dom'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button, Col, Container, Row } from 'react-bootstrap'
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import cozyDesk from "./assets/cozydesk.jpg"
 
 // importing pages
 import AddCreator from './pages/AddCreator'
 import ShowCreators from './pages/showCreators'
 import ViewCreator from './pages/viewCreator'
 import EditCreator from './pages/EditCreator'
+
 
 function App() {
   // declare useStates
@@ -38,22 +43,37 @@ function App() {
     setCreators(creator);
   }
 
+  const bannerButtons = {
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    borderColor: '#ffecb3',
+    color: '#ffffff',
+    fontWeight: 'bold',
+    textShadow: '0px 2px 10px rgba(0, 0, 0, 0.8)',
+  }
 
   return (
-    <>
-      <Link to="/">
-        <button>
-          View Creators
-        </button>
-      </Link>
-      <Link to='/new'>
-        <button>
-          Add New Creator
-        </button>
-      </Link>
-      {creatorElements}
-      
-    </>
+    <Container className='image-cont'>
+      <img className='banner' src={cozyDesk}/>
+      <div className="button-container">
+          <Link to="/" className='overlay-button '>
+            <Button style={bannerButtons}>
+              View Creators
+            </Button>
+          </Link>
+
+          <Link to='/new' className='overlay-button'>
+            <Button style={bannerButtons}>
+              Add Creator
+            </Button>
+          </Link>
+      </div>
+
+      <Row>
+        <Col xs={12} lg={12} className="d-flex justify-content-center">
+          {creatorElements}
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

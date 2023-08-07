@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+import "./showCreator.css"
+
 // components
 import CreatorCard from "../components/CreatorCard";
 
@@ -11,7 +13,7 @@ const ShowCreators = (props) => {
     }, [props])
 
     return(
-        <div>
+        <div className="list_cont">
             {creators && creators.length > 0 ?
                 creators.map((creator, index) => 
                     <div key = {creator.id}>

@@ -1,0 +1,24 @@
+.image-cont{
+    max-width: 100%;
+    position: relative;
+}
+
+.banner{
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    display: block;
+}
+
+.button-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay-button {
+    margin: 5px;
+}
+
+

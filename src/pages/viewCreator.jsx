@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { supabase } from "../client";
+import { Container, Row, Col } from "react-bootstrap";
 
 const ViewCreator = () => {
     const {id} = useParams();
