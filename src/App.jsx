@@ -54,6 +54,7 @@ function App() {
     <div className='image-cont'>
       <div className='bannerCont'>
         <img className='banner' src={cozyDesk}/>
+        <h1 className='creatorHub'> Creatorverse</h1>
         <div className="button-container">
             <Link to="/" className='overlay-button '>
               <Button style={bannerButtons}>
