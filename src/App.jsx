@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import cozyDesk from "./assets/cozydesk.jpg"
 
@@ -26,7 +23,7 @@ function App() {
   let creatorElements = useRoutes([
     {path:"/", element: <ShowCreators data={creators} />},
     {path: "/new", element: <AddCreator />},
-    {path: "viewCreator/:id/*", element: <ViewCreator />},
+    {path: "viewCreator/:id", element: <ViewCreator />},
     {path: "editCreator/:id", element: <EditCreator />}
   ]);
 
@@ -49,23 +46,27 @@ function App() {
     color: '#ffffff',
     fontWeight: 'bold',
     textShadow: '0px 2px 10px rgba(0, 0, 0, 0.8)',
+    width: '200px',
+    height: '50px',
   }
 
   return (
-    <Container className='image-cont'>
-      <img className='banner' src={cozyDesk}/>
-      <div className="button-container">
-          <Link to="/" className='overlay-button '>
-            <Button style={bannerButtons}>
-              View Creators
-            </Button>
-          </Link>
+    <div className='image-cont'>
+      <div className='bannerCont'>
+        <img className='banner' src={cozyDesk}/>
+        <div className="button-container">
+            <Link to="/" className='overlay-button '>
+              <Button style={bannerButtons}>
+                View Creators
+              </Button>
+            </Link>
 
-          <Link to='/new' className='overlay-button'>
-            <Button style={bannerButtons}>
-              Add Creator
-            </Button>
-          </Link>
+            <Link to='/new' className='overlay-button'>
+              <Button style={bannerButtons}>
+                Add Creator
+              </Button>
+            </Link>
+        </div>
       </div>
 
       <Row>
@@ -73,7 +74,7 @@ function App() {
           {creatorElements}
         </Col>
       </Row>
-    </Container>
+    </div>
   )
 }
 

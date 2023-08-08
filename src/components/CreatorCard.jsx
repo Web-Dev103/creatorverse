@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card } from "react-bootstrap"
+import { Container, Row, Col, Card, Dropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./CreatorCard.css"
 
@@ -7,23 +7,51 @@ import insta_logo from "../assets/insta_logo.png"
 import fb_logo from "../assets/fb_logo.png"
 import x_logo from "../assets/x_logo.png"
 import empty_icon from "../assets/emptyIcon.jpg"
+import threedot from "../assets/threedot.png"
+import { useState } from "react"
 
 const CreatorCard = (props) => {
+
+    const [dropDown, setDropDown] = useState(false);
+    const toggleDropdown = () => {
+        setDropDown(!dropDown)
+    }
+
     return(
         <Container className="creator_card">
-            <Row>
-                <Col>
-                    <div className="logo_cont">
-                        {props.img_url != null ? 
-                        <img className="icon" src={props.img_url} alt={empty_icon}/>:
-                        <img class="icon" src={empty_icon}/> }
+            <img src={threedot} className="threedot" align="right" onClick={toggleDropdown}/>
+            {
+                dropDown && (
+                    <div className="dropdown">
+                        <div className="dropdownMenu">
+                            <div>
+                                <Link to={'viewCreator/'+props.id}>
+                                    View Creator
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to={'editCreator/'+props.id}>
+                                    Edit Creator
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </Col>
+                )
+            }
+
+            <Row>
+                
+                <div className="logo_cont">
+                    {props.img_url ? 
+                    <img className="icon" src={props.img_url} alt={empty_icon}/>:
+                    <img className="icon" src={empty_icon}/> }
+                </div>
+                
                 <Col>
-                    {props.name != null ?
+                    {props.name ?
                     <h3 className="name"> {props.name}</h3> 
                     : <h3></h3>}
-                    {props.desc != null ? 
+                    {props.desc ? 
                     <p> {props.desc} </p>:
                     <p></p>}
                     
@@ -42,27 +70,6 @@ const CreatorCard = (props) => {
                 </Col>
             </Row>
         </Container>
-        // <div>
-
-            
-           
-            
-            
-
-
-
-
-        //     <button>
-        //         <Link to={'viewCreator/'+props.id}>
-        //             View 
-        //         </Link>
-        //     </button>
-        //     <button>
-        //         <Link to={'editCreator/'+props.id}>
-        //             Edit
-        //         </Link>
-        //     </button>
-        // </div>
     )
 }
 export default CreatorCard
